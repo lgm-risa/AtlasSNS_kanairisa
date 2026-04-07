@@ -28,16 +28,34 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+    // ▼この処理後画面を移動
     public function store(Request $request): RedirectResponse
     {
+        // バリデーション設定
+        $validated=$request->validate([
+            'email'=>'required|unique:users|email|min:5|max:40',
+            'username'=>'required|min:2|max:12',
+            'password'=>'required|alpha_num|min:8|max:20|confirmed',
+            'password_confirmation'=>'required'
+        // ],
+        // [
+        //     'email.required'=>'メールアドレスは入力必須です。',
+        //     'email.unique'=>'既に登録されています。'
+        ]);
+        // ▼フォームで入力された内容をusersテーブルに保存
         User::create([
             'username' => $request->username,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make
+            // ※パスワードそのまま保存しないため
+            ($request->password),
         ]);
-
+        session(['username' =>$request->username]);
+// ▼addedのURLへ移動する
         return redirect('added');
+
     }
+
 
     public function added(): View
     {

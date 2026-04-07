@@ -1,9 +1,9 @@
 <x-logout-layout>
 
   <!-- 適切なURLを入力してください -->
-  {!! Form::open(['url' => '〇〇']) !!}
+  {!! Form::open(['url' => 'login']) !!}
 
-  <p>AtlasSNSへようこそ</p>
+  <p class="bg-red-500">AtlasSNSへようこそ</p>
 
   {{ Form::label('email') }}
   {{ Form::text('email',null,['class' => 'input']) }}
