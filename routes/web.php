@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\FollowsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +48,10 @@ Route::middleware('auth')->group(function () {
 
 
 });
+
+// Route::get('followlist',function(){
+//   return view('followlist');
+// })->name('followlist');
+// Route::get('followerlist',function(){
+//   return view('followerlist');
+// })->name('followerlist');
