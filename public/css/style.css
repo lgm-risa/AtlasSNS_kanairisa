@@ -1,22 +1,133 @@
 @charset "utf-8";
-html{
-}
-body{
-}
+
+html {}
+
+body {}
+
 /* header */
-header{
-    background:#186AC9;
+header {
+    background: #186AC9;
+    width: 100%;
 }
 
+
+
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
+
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+}
+
+/* topのheader */
+#head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+
+}
+
+/* Atlasロゴの設定 */
+#head h1 img {
+    height: 50px;
+    width: auto;
+}
+
+
+#head_menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    position: relative;
+
+
+}
+
+.username {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: cornsilk;
+    padding: 20px;
+}
+
+#menu-trigger {
+    /* アコーディオンメニューの親 */
+    position: relative;
+    display: flex;
+    /* display:flexがないとcenter効かない */
+    align-items: center;
+    cursor: pointer;
+    gap: 20px;
+}
+
+/* ユーザーアイコン設定 */
+.user-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* アコーディオンメニュー */
+.arrow {
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+    /* align-items: center; */
+}
+
+.arrow::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: solid 1px #ffffff;
+    border-right: solid 2px #ffffff;
+    position: absolute;
+    left: 5px;
+    top: 1px;
+}
+
+.arrow-bottom::before {
+    transform: rotate(135deg);
+}
+
+.arrow-top::before {
+    transform: rotate(-45deg);
+}
+
+.accordion_menu li {
+    border: 1px solid #000080;
+    padding: 12px;
+    text-align: center;
+}
+
+.accordion_menu li:last-child {
+    border-bottom: none;
+}
+
+
+.accordion_menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    width: 150px;
+    background: #fff;
+    border: 1px solid #000080;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
